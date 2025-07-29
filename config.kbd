@@ -1,0 +1,25 @@
+;; CapsLock + ijkl arrow keys + media controls configuration
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps i j k l p q z u o volu vold
+)
+
+(defalias
+  ;; CapsLock becomes a layer modifier when held
+  nav (layer-while-held navigation)
+  ;; Mouse wheel actions for scrolling
+  scrup (mwheel-up 50 120)
+  scrdn (mwheel-down 50 120)
+)
+
+(deflayer base
+  @nav i j k l p q z u o volu vold
+)
+
+(deflayer navigation
+  _    up left down rght pp @scrup @scrdn home end @scrup @scrdn
+)
