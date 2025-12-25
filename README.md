@@ -35,6 +35,24 @@ Restart=never
 WantedBy=default.target
 ```
 
+
+example:
+```
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+Environment=HOME=/home/fryad
+ExecStart=/usr/local/bin/kanata --cfg /home/fryad/.config/kanata/config.cfg
+Restart=never
+
+[Install]
+WantedBy=default.target
+```
+
 **Note:** Edit the paths in the service file as needed for your system.
 
 ## 4. Enable and Start the Service
